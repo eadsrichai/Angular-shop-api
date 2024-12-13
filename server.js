@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const fileUpload = require('express-fileupload');
+
 
 const userController = require("./controllers/UserController");
 const foodTypeController = require("./controllers/FoodTypeController");
@@ -14,6 +16,9 @@ const foodSizeController = require('./controllers/FoodSizeController');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(fileUpload());
+app.use('/uploads', express.static('uploads'));
+
 
 app.post("/api/user/signin", (req, res) => userController.signin(req, res));
 
