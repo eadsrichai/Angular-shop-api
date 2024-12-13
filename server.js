@@ -7,6 +7,8 @@ const userController = require("./controllers/UserController");
 const foodTypeController = require("./controllers/FoodTypeController");
 const foodSizeController = require("./controllers/FoodSizeController");
 const tasteController = require("./controllers/TasteController");
+const foodSizeController = require('./controllers/FoodSizeController');
+
 
 
 app.use(cors());
@@ -14,6 +16,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post("/api/user/signin", (req, res) => userController.signin(req, res));
+
+
+//
+// food
+//
+app.post('/api/food/paginate', (req, res) => foodController.paginate(req, res));
+app.get('/api/food/filter/:foodType', (req, res) => foodController.filter(req, res));
+app.put('/api/food/update', (req, res) => foodController.update(req, res));
+app.delete('/api/food/remove/:id', (req, res) => foodController.remove(req, res));
+app.get('/api/food/list', (req, res) => foodController.list(req, res));
+app.post('/api/food/upload', (req, res) => foodController.upload(req, res));
+app.post('/api/food/create', (req, res) => foodController.create(req, res));
+
+
 
 //
 // taste
