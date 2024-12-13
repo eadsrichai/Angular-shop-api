@@ -9,8 +9,7 @@ const userController = require("./controllers/UserController");
 const foodTypeController = require("./controllers/FoodTypeController");
 const foodSizeController = require("./controllers/FoodSizeController");
 const tasteController = require("./controllers/TasteController");
-const foodSizeController = require('./controllers/FoodSizeController');
-
+const foodController = require('./controllers/FoodController');
 
 
 app.use(cors());
